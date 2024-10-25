@@ -1,0 +1,172 @@
+<div mat-dialog-title>
+  <h4 class="text-center lead">Formulario de registro</h4>
+</div>
+
+<form [formGroup]="formulario" (ngSubmit)="agregar()">
+  <mat-dialog-content class="content">
+    <div class="ancho">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input
+          type="text"
+          formControlName="nombre"
+          matInput
+          placeholder="Placeholder"
+        />
+        <mat-error>
+          <small
+            *ngIf="
+              formulario.get('nombre')?.hasError('required') &&
+              formulario.get('nombre')?.touched
+            "
+            class="text-danger"
+          >
+            El campo nombre es obligatorio.
+          </small>
+
+          <small
+            *ngIf="formulario.get('nombre')?.hasError('pattern')"
+            class="text-danger"
+          >
+            Ingrese un nombre valido.
+          </small>
+
+          <p
+            *ngIf="formulario.get('nombre')?.hasError('minlength')"
+            class="text-danger"
+          >
+            El nombre debe tener minimo
+            {{
+              formulario.get("nombre")?.getError("minlength")?.requiredLength
+            }}
+            caractéres.
+          </p>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input type="text" matInput formControlName="apellido" />
+
+        <mat-error>
+          <small
+            *ngIf="
+              formulario.get('apellido')?.hasError('required') &&
+              formulario.get('apellido')?.touched
+            "
+            class="text-danger"
+          >
+            El campo apellido es obligatorio.
+          </small>
+
+          <small
+            *ngIf="formulario.get('apellido')?.hasError('pattern')"
+            class="text-danger"
+          >
+            Ingrese un apellido valido.
+          </small>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="ancho">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" />
+        <mat-error>
+          <small
+            *ngIf="
+              formulario.get('email')?.hasError('required') &&
+              formulario.get('email')?.touched
+            "
+            class="text-danger"
+          >
+            El campo email es obligatorio.
+          </small>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Direccion</mat-label>
+        <input type="text" matInput formControlName="direccion" />
+        <mat-error>
+          <small
+            *ngIf="
+              formulario.get('direccion')?.hasError('required') &&
+              formulario.get('direccion')?.touched
+            "
+            class="text-danger"
+          >
+            El campo curso es obligatorio.
+          </small>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="ancho">
+      <mat-form-field>
+        <mat-label>Seleccionar su pais</mat-label>
+        <mat-select formControlName="pais">
+          <mat-option *ngFor="let pais of paises" [value]="pais">
+            {{ pais }}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <small
+            *ngIf="
+              formulario.get('pais')?.hasError('required') &&
+              formulario.get('pais')?.touched
+            "
+            class="text-danger"
+          >
+            Debes seleccionar su pais.
+          </small>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Seleccionar su sexo</mat-label>
+        <mat-select formControlName="genero">
+          <mat-option *ngFor="let genero of generos" [value]="genero">
+            {{ genero }}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <small
+            *ngIf="
+              formulario.get('genero')?.hasError('required') &&
+              formulario.get('genero')?.touched
+            "
+            class="text-danger"
+          >
+            Debes seleccionar su genero.
+          </small>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-action class="accion">
+      <button
+        [ngStyle]="{ 'border-radius': '0', 'margin-right': '16px' }"
+        mat-raised-button
+        [mat-dialog-close]="false"
+        type="button"
+      >
+        Cancelar
+      </button>
+
+      <button
+        [disabled]="formulario.invalid"
+        [ngStyle]="{
+          'border-radius': '0',
+          'margin-right': '16px',
+          'background-color': 'blue',
+          color: 'white'
+        }"
+        mat-raised-button
+        type="submit"
+      >
+        {{ data ? "Actualizar" : "Guardar" }}
+      </button>
+    </div>
+  </mat-dialog-content>
+</form>

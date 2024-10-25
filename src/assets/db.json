@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe"
+    },
+    {
+      "id": "2",
+      "name": "Jane Doe"
+    }
+  ],
+  "alumno": [
+    {
+      "id": "cc37",
+      "nombre": "Reginald",
+      "apellido": "LOUIS",
+      "direccion": "528 New Horizons Loop",
+      "pais": "Chile",
+      "email": "lo@gmail.com",
+      "genero": "Masculino"
+    },
+    {
+      "id": "499e",
+      "nombre": "Reginald",
+      "apellido": "LOUIS",
+      "direccion": "528 New Horizons Loop",
+      "pais": "USA",
+      "email": "louisregi@yahoo.com",
+      "genero": "Masculino"
+    }
+  ]
+}

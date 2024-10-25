@@ -1,0 +1,19 @@
+.ancho {
+  display: flex;
+  gap: 5px;
+}
+
+.accion {
+  padding: 0 35px 20px;
+}
+.accion button {
+  flex: 1;
+}
+
+.accion {
+  flex: 1;
+}
+
+.w-100 {
+  width: 100%;
+}/*# sourceMappingURL=agregar-editar.component.css.map */
